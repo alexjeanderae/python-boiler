@@ -14,7 +14,8 @@ Datetime and logging.
 Script was written with Python 3.10.
 
 ===TO REMEMBER===
-
+1- Weird import syntax. I had an error "ModuleNotFoundError: No module named" and the file name I try to import
+from  .tkinter_dialog import open_file_with_inputs --> added a . to make a relative import! It fixed it.
 
 
 ===TO IMPROVE===
