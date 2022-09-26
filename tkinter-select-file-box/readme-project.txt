@@ -16,12 +16,19 @@ Script was originally written with Python 3.9.6
 ===TO REMEMBER===
 1- Weird import syntax. I had an error "ModuleNotFoundError: No module named" and the file name I try to import
 from  .tkinter_dialog import open_file_with_inputs --> added a . to make a relative import! It fixed it.
-2-Make a quick icon to get going. I used canva, saved a png, then used another app to get an .ico file. The size is 48x48 px.
-3-Pyinstaller as a one liner in the CLI for something quick. The dist file it creates will have a .exe file. You can rename 
+2- I encountered further import/packaging issues in the use of pysinstaller. And generally the code could follow DRY better. Good reads:
+https://iq-inc.com/importerror-attempted-relative-import/
+https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
+https://stackoverflow.com/questions/60988011/pyinstaller-importerror-on-own-module
+
+3-Make a quick icon to get going. I used canva, saved a png, then used another app to get an .ico file. The selected size is 48x48 px which is quite small.
+
+4-Pyinstaller as a one liner in the CLI for something quick. The dist file it creates will have a .exe file. You can rename 
 the executable after it is output if you want.
 pyinstaller.exe --onefile -w --icon=xyz.ico name_of_entry_file.py
 The -w or --windowed flag is to avoid a blackbox at the back that is some kind of a command prompt looking thing :D. Also using .pyw extensions instead of .py seem also to solve this. 
 There is a great timesaver resource on pyinstaller official doc - https://pyinstaller.org/en/stable/when-things-go-wrong.html
+
 
 ===TO IMPROVE===
 #TODO: here is the main list
