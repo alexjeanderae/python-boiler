@@ -18,6 +18,7 @@ Script was written with Python 3.10.
 
 
 ===TO IMPROVE===
+#TODO: here is the main list
 - Had some issues with CLI on certain use case (default values with flags) I would like to revisit the solution of. I am pretty sure there is more readable way -pythonic!- way to deal with these. See private repos and decide what to handle here on public.
 - Message to open prints where?
 - Call a test when tkinter opens the file to make sure that the contents are as needed?
