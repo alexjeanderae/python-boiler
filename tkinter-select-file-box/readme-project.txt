@@ -13,6 +13,9 @@ Tkinter for the GUI - some part of it as the lib does much more.
 Datetime and logging. 
 Script was originally written with Python 3.9.6
 
+Current command to run pyinstaller
+pyinstaller.exe --onefile -w --debug=imports --icon=select-file-box.ico py_installer_entry.py
+
 ===TO REMEMBER===
 1- Weird import syntax. I had an error "ModuleNotFoundError: No module named" and the file name I try to import
 from  .tkinter_dialog import open_file_with_inputs --> added a . to make a relative import! It fixed it.
@@ -29,6 +32,18 @@ pyinstaller.exe --onefile -w --icon=xyz.ico name_of_entry_file.py
 The -w or --windowed flag is to avoid a blackbox at the back that is some kind of a command prompt looking thing :D. Also using .pyw extensions instead of .py seem also to solve this. 
 There is a great timesaver resource on pyinstaller official doc - https://pyinstaller.org/en/stable/when-things-go-wrong.html
 
+===TO DO===
+1- Repair the module imports - read https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
+2- Comment/Document the module imports repairs
+3- Have a yaml file that runs all commands
+4- Comment/Document the addition of the yaml file
+5- Add testing layer
+6- Comment/Document the testing addition
+7- Add Docstring and document the experience
+8 - Review the document of the whole thing using Docstring 
+9- Finalize the core
+10- Start tackling the improvements on rainy days.
+
 
 ===TO IMPROVE===
 #TODO: here is the main list
@@ -37,3 +52,4 @@ There is a great timesaver resource on pyinstaller official doc - https://pyinst
 - Call a test when tkinter opens the file to make sure that the contents are as needed?
 - Do we want to open multiple files? https://stackoverflow.com/questions/16790328/open-multiple-filenames-in-tkinter-and-add-the-filesnames-to-a-list
 - Do some visual improvements to the GUI - check this series https://www.youtube.com/watch?v=QWqxRchawZY
+- Improve the init file?
