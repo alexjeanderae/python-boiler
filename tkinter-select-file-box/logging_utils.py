@@ -1,7 +1,7 @@
 # logging_utils.py
 
 import logging
-from .time_stamp_util import generate_short_timestamp
+from time_stamp_util import generate_short_timestamp
 
 
 """ This script creates a logging text file to save the output of other logging operations

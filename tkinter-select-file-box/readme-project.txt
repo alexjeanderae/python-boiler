@@ -14,11 +14,18 @@ Datetime and logging.
 Script was originally written with Python 3.9.6
 
 Current command to run pyinstaller
-pyinstaller.exe --onefile -w --debug=imports --icon=select-file-box.ico py_installer_entry.py
+pyinstaller.exe --onefile -w --hidden-import utils.logging_utils --hidden-import utils.tkinter_dialog--icon=select-file-box.ico py_installer_entry.py
+
+===LESSONS LEARNT===
+1-Confirmed - Need an init file in all folder containing .py files and their respective subfolders. From the official doc: "The __init__.py files are required to make Python treat the directories as containing packages; this is done to prevent directories with a common name, such as string, from unintentionally hiding valid modules that occur later on the module search path. In the simplest case, __init__.py can just be an empty file, but it can also execute initialization code for the package or set the __all__ variable, described later." That did not solve the import module bug I had with pysintaller.
+"if a package’s __init__.py code defines a list named __all__, it is taken to be the list of module names that should be imported when from package import * is encountered."
+__all__ = ["file1", "file4", "file5"]
+Good read: https://docs.python.org/3/tutorial/modules.html#packages
+
 
 ===TO REMEMBER===
 1- Weird import syntax. I had an error "ModuleNotFoundError: No module named" and the file name I try to import
-from  .tkinter_dialog import open_file_with_inputs --> added a . to make a relative import! It fixed it.
+from  .tkinter_dialog import open_file_with_inputs --> added a . to make a relative import! It fixed it. But then it created other issues. Generally it seems absolute -not relative- imports is the most robust solution in Python. Absolute import is typically "from subfolder.filename import functionname". You can then call functionname() directly in the code
 2- I encountered further import/packaging issues in the use of pysinstaller. And generally the code could follow DRY better. Good reads:
 https://iq-inc.com/importerror-attempted-relative-import/
 https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
@@ -32,8 +39,8 @@ pyinstaller.exe --onefile -w --icon=xyz.ico name_of_entry_file.py
 The -w or --windowed flag is to avoid a blackbox at the back that is some kind of a command prompt looking thing :D. Also using .pyw extensions instead of .py seem also to solve this. 
 There is a great timesaver resource on pyinstaller official doc - https://pyinstaller.org/en/stable/when-things-go-wrong.html
 
-===TO DO===
-1- Repair the module imports - read https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
+===FURTHER POLISH - POSSIBLE IMPROVEMENTS===
+1- I could not get the modules to load properly if in sub folders. I tried 5 different solutions on SO, read docs. Was not working for me on this code base. Not a drama as I can flatten the folder structure to just one. But in the future, I might want to revisit this.
 2- Comment/Document the module imports repairs
 3- Have a yaml file that runs all commands
 4- Comment/Document the addition of the yaml file

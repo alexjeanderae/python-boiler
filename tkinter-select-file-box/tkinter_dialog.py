@@ -20,8 +20,8 @@ def open_file_with_inputs():
 # add an error if cannot load the file
 # add an error if it is a file of not the right type (typically txt but could extend to others)
 
-if __name__ == '__main__':
-        print("running the invoked script standalone")
-        open_file_with_inputs()
+# if __name__ == '__main__':
+#         print("running the invoked script standalone")
+#         open_file_with_inputs()
         
     

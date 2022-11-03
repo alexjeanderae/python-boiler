@@ -1,6 +1,6 @@
 # main.py
-from  .tkinter_dialog import open_file_with_inputs
-from .logging_utils import create_log_txt_file
+from  tkinter_dialog import open_file_with_inputs
+from logging_utils import create_log_txt_file
 
 def main(): 
     create_log_txt_file()
