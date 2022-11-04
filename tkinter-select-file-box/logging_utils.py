@@ -10,11 +10,8 @@ It calls another script that generates a timestamp and extension based filename 
 def create_log_txt_file():
     time_in_string = generate_short_timestamp()
     generated_name = "log_" + time_in_string +".txt"
-    logging.basicConfig(filename=generated_name)
-    logging.debug("file created " + generated_name)
-
-
-
+    logging.basicConfig(filename=generated_name, level=logging.DEBUG)  #lowest level of logged message at "debug" level
+    logging.debug("file created " + generated_name) 
 
 
 if __name__ == '__main__':

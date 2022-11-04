@@ -36,8 +36,10 @@ https://stackoverflow.com/questions/60988011/pyinstaller-importerror-on-own-modu
 4-Pyinstaller as a one liner in the CLI for something quick. The dist file it creates will have a .exe file. You can rename 
 the executable after it is output if you want.
 pyinstaller.exe --onefile -w --icon=xyz.ico name_of_entry_file.py
-The -w or --windowed flag is to avoid a blackbox at the back that is some kind of a command prompt looking thing :D. Also using .pyw extensions instead of .py seem also to solve this. 
-There is a great timesaver resource on pyinstaller official doc - https://pyinstaller.org/en/stable/when-things-go-wrong.html
+The -w or --windowed flag is to avoid a blackbox at the back. Might be wanted though as it prints console. 
+
+5- There is a great timesaver resource on pyinstaller official doc - https://pyinstaller.org/en/stable/when-things-go-wrong.html
+
 
 ===FURTHER POLISH - POSSIBLE IMPROVEMENTS===
 1- I could not get the modules to load properly if in sub folders. I tried 5 different solutions on SO, read docs. Was not working for me on this code base. Not a drama as I can flatten the folder structure to just one. But in the future, I might want to revisit this.
