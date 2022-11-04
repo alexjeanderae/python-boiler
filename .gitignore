@@ -1,3 +1,7 @@
+# exclude dist but include the manual demo folder
+dist/*
+!dist/demo/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -10,7 +14,6 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/

@@ -1,0 +1,2 @@
+DEBUG:root:file created log_1104_0133.txt
+INFO:root:selected to load C:/github/python-boiler/tkinter-select-file-box/dist/test-urls.txt
