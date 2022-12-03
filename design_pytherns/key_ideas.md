@@ -57,8 +57,7 @@ Similar but dissimilar to other patterns: There is nothing quite like it. But th
 Key syntax considerations:
 1 - there are lots of event libraries that are stand-alone in python, you dont really need to write your own. They each have slightly different variations of observer. Blinker and pydispatcher are amongst the most popular.
 2- You can reduce the imports by using these techniques.
-3- self is used as first parameter when you use it. It typically indicate that you will instantiate that object and then do a bunch of stuff to it in the code inside the class. See observer_lib/db.py. Also they go along with def __new__ (or most often nothing) to create the blueprint (consturctor) and __init__ to inialize it. Self is great to refactor into better cohesion (do one thing) and loose coupling (one change somewhere else means many changes there)
-
+3- self is used as first parameter when you use it. It typically indicate that you will instantiate that object and then do a bunch of stuff to it in the code inside the class. See observer_lib/db.py. Also they go along with def __new__ (or most often nothing) to create the blueprint (consturctor) and __init__ to inialize it. Self is great to refactor into better cohesion (do one thing) and loose coupling (one change somewhere else means many changes there). More about this and initializers https://www.youtube.com/watch?v=eiDyK_ofPPM
 
 
 

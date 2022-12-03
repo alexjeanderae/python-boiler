@@ -1,0 +1,3 @@
+Hi there! welcome to data.txt. 
+There is data right in here! 
+3 lines worth of data but more can be added with one-liners.Python is awesomePython is awesomePython is awesome

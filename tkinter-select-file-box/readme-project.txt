@@ -62,3 +62,4 @@ The -w or --windowed flag is to avoid a blackbox at the back. Might be wanted th
 - Do we want to open multiple files? https://stackoverflow.com/questions/16790328/open-multiple-filenames-in-tkinter-and-add-the-filesnames-to-a-list
 - Do some visual improvements to the GUI - check this series https://www.youtube.com/watch?v=QWqxRchawZY
 - Improve the init file?
+- Do the modular approach as in the hitchiker guide to python
