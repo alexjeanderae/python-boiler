@@ -1,9 +1,16 @@
-#11 Space Separated integers to a List
-### we are using input from terminal here. But we could inject values
-### type 1 to 8 with a space in terminal to have the print result below. 
-lst = list(map(int, input().split()))
-print(lst)
+# 11 Space Separated integers to a List
+# we are using input from terminal here. But we could inject values
+# type 1 to 8 with a space in terminal to have the print result below.
+#lst = list(map(int, input().split()))
+#print(lst)
 # >> 1 2 3 4 5 6 7 8
+
+# 12 Lambda function
+
+sqr = lambda x: x * x # Function that returns square of any number
+print(sqr(10))
+# >> 100
+
 
 # we are at 13 here
 # https://levelup.gitconnected.com/25-useful-python-one-liners-that-you-should-ec613df18260
