@@ -1,12 +1,14 @@
+
+
 # 11 Space Separated integers to a List
 # we are using input from terminal here. But we could inject values
 # type 1 to 8 with a space in terminal to have the print result below.
-#lst = list(map(int, input().split()))
-#print(lst)
+print("Click here on the console, then type a series of int numbers separated by spacebar, then press enter:")
+lst = list(map(int, input().split()))
+print(lst)
 # >> 1 2 3 4 5 6 7 8
 
 # 12 Lambda function
-
 sqr = lambda x: x * x # Function that returns square of any number
 print(sqr(10))
 # >> 100

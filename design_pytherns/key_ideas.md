@@ -36,6 +36,41 @@ Main idea: You want to leave things open for run time. You extract as much as po
 
 Buzz-words: get/set/update/somethingHasChanged, publisher and subscribers, subject (observeable aka data aka publisher) vs observer (ex display or subscriber), push not pull. 
 
+ 
+
+### Observer pattern - technical overview
+Code in plain language: Interface "IPublisher" has a relationship one (the IPublisher) to many Interface "IObserver"s. Inside the IPublisher you can addSubscriber - removeSubscriber - notifySubscribers. Typically Add and Remove would have an argument of type IObserver but notify would not have any arguments. The IOberserver has a update method -I repeat update is with the subscriber, notify is with the publisher! The update() method will react on notifications - but typically the publisher will directly call the update method of the Iobserver, a method outside of its class. The Concrete implementations should have all these 4 but ALSO get and set that are not needed at Interface level. Set typically would have a lot more code around it. 
+
+The Observable concretes does almost 2 things and is borderline for Single Responsibility. It does pure observable stuff (add/remove/notify) + state stuff (get/set). You pass the concrete subscriber to the concrete publisher so it knows to add/remove. You pass the data and call update through notify on the other direction from publisher to subscriber. It is counterintuitively two ways in the code. This allows to avoid having a argument to update and to notify.
+
+The add method wants to receive also the update function in it so it can call it. The Notify method inside the Publisher will have an iteration over the collection and call update() that it can access on each. There will be a this. to be able to find the right one.
+
+So to remain single responsibility when you instantiation
+1- create a new fresh Publisher without argument. 
+2- Then a new Subscriber with the Publisher as argument.
+
+
+Examples of when?: chatroom - weather station - event system
+
+Similar but dissimilar to other patterns: There are many variations around the same concept. "Publish-Subscribe" is more loose on registration requirements (observer/observable know less of each other and/or of the content being exchanged). "Mediator" is another flavour with accents on having a dispatcher that distributes to avoid one to many relationship.  "Hooks" flavour is more towards fixed integration points that allow certain actions. Then there are a lot of patterns around "events", generally the main difference here tends to be that event patterns focus on messages/requests asynchronously as coding blocks while observer calls notify/update coding blocks synchronously.
+
+### Observer pattern - python overview
+Key syntax considerations:
+1 - there are lots of event libraries that are stand-alone in python, you dont really need to write your own. They each have slightly different variations of observer. Blinker and pydispatcher are amongst the most popular.
+2- You can reduce the imports by using these techniques.
+3- self is used as first parameter when you use it. It typically indicate that you will instantiate that object and then do a bunch of stuff to it in the code inside the class. See observer_lib/db.py. Also they go along with def __new__ (or most often nothing) to create the blueprint (consturctor) and __init__ to inialize it. Self is great to refactor into better cohesion (do one thing) and loose coupling (one change somewhere else means many changes there). More about this and initializers https://www.youtube.com/watch?v=eiDyK_ofPPM
+
+
+
+=======================
+
+Still has observer data inside
+
+# Singleton pattern
+Main idea: You want to leave things open for run time. You extract as much as possible individual classes into separate "strategies" classes and have an interface that can call them all. you can extend you code just "under" the interface by adding new behaviours as long as they can cope with the interface that interacts with them all. Pull would be querying all the time if something has changed every x seconds. We dont do it  here. We only get info when something has changed. All subscribers get notified. Need some form state or at least data object to push data from and the collection of subscribers to notify. 
+
+Buzz-words: get/set/update/somethingHasChanged, publisher and subscribers, subject (observeable aka data aka publisher) vs observer (ex display or subscriber), push not pull. 
+
 
 ### Observer pattern - technical overview
 Code in plain language: Interface "IPublisher" has a relationship one (the IPublisher) to many Interface "IObserver"s. Inside the IPublisher you can addSubscriber - removeSubscriber - notifySubscribers. Typically Add and Remove would have an argument of type IObserver but notify would not have any arguments. The IOberserver has a update method -I repeat update is with the subscriber, notify is with the publisher! The update() method will react on notifications - but typically the publisher will directly call the update method of the Iobserver, a method outside of its class. The Concrete implementations should have all these 4 but ALSO get and set that are not needed at Interface level. Set typically would have a lot more code around it. 
@@ -52,6 +87,8 @@ So to remain single responsibility when you instantiation
 Examples of when?: chatroom - weather station - event system
 
 Similar but dissimilar to other patterns: There is nothing quite like it. But there are variations of it. Publish-Subscribe is sometimes seem as different as people put more strict sense on the event existing at time of registration or not. Hooks is for fixed integration points that allow certain actions.
+
+### Singleton pattern - main criticisms
 
 ### Observer pattern - python overview
 Key syntax considerations:
