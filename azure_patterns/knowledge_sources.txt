@@ -1,3 +1,8 @@
 
 durable functions
 https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=python
+
+- NDC conference 2022 - Graeme Foster -  https://www.youtube.com/watch?v=i6KiPww_pRA&list=PL8O-SHvPOCnOKB0pKlhvYgXHO3CGZvsVt
+Check more on CQRS, Event Sourcing, Sagas
+
+for 00-> https://www.youtube.com/watch?v=Xtihes__kpw
