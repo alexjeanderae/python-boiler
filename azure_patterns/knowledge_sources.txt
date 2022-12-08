@@ -1,0 +1,3 @@
+
+durable functions
+https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=python

@@ -1,10 +1,9 @@
-# Theory
-Book "Head First Design Patterns" published by O'Reilly
-Christopher Okhravi series - 18 videos - https://www.youtube.com/playlist?list=PLrhzvIcii6GNjpARdnO4ueTUAVR9eMBpc
-# ADD more on MVC, repository pattern and cloud patterns
 
+- Book "Head First Design Patterns" published by O'Reilly
+- Christopher Okhravi series - 18 videos - https://www.youtube.com/playlist?list=PLrhzvIcii6GNjpARdnO4ueTUAVR9eMBpc
+- arjan codes series - 38 vids https://www.youtube.com/playlist?list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71FG6N
+- neuralnine  series - 10 vids - https://www.youtube.com/watch?v=KSiRzuSx120&list=PL7yh-TELLS1FuqLSjl5bgiQIEH25VEmIc
+- https://python-patterns.guide/
+- refactoring.guru
 
-# Python stub codes
-# do the whole arjan codes series - 38 vids https://www.youtube.com/playlist?list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71FG6N
-# do the whole neural nine code series - 10 vids - https://www.youtube.com/watch?v=KSiRzuSx120&list=PL7yh-TELLS1FuqLSjl5bgiQIEH25VEmIc
-# the patterns that are not that great in python do them in another language?
+# ADD MVC, repository pattern
