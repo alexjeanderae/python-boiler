@@ -66,9 +66,9 @@ Key syntax considerations:
 # Singleton pattern
 Main idea: This pattern is not very popular as it has flaws. But its mechanism is quite interesting. It makes sure the class has only one instance and provides a global point of access to it. Main criticisms point out - the global scope and not being able to have more instance in the future. Singleton class is typically built using a private constructor while somehow keeping it public. So from your code you cannot call the constructor directly. You cannot do new Singleton. But you can call the get instance through the class from anywhere in your code Singleton.getInstance(). And that getInstance static class does the heavy lifting indicated above.
 
-Many BUTs: Singleton has many opponents. It can break with multithreading. Often there are simpler ways to solve the core issue without using singleton, like relying on enums. 
+Many BUTs: Singleton has many opponents. It can break with multithreading. You can also break it through inheritance. IS hard to test as you are not sure on instantiation and typically you need a few instances to run different independant tests. Often there are simpler ways to solve the core issue without using singleton, like relying on enums or python modules. 
 
-Buzz-words: arguably a code smell, one and only, pushing the limits of static/public/private, restricting access from outside the Singleton class, 
+Buzz-words: arguably a code smell, one and only, pushing the limits of static/public/private, restricting access from outside the Singleton class.
 
 ### singleton pattern - technical overview
 Code in plain language: So you define a method getInstance() within your Singleton class and you call it not on an instance of the class but on the class. Add a private variable to have the singleton make sure you have only one. The static method then checks if through the private variable if there is already an instance or not, only creates if there is none (only place you can call new on it), in better terms it would then instance it and store it into the private variable. Should it already exist, it returns the variable that stores. 
@@ -85,10 +85,12 @@ Similar but dissimilar to other patterns: State, shared memory patterns like Mon
 
 
 ### Singleton pattern - python overview
-There is a generalized version of the singleton pattern in Python called the Object Pool
+Check out the singleton.py file. Comments are inside, the code is quite short but convoluted. 
+
+There is a generalized version of the singleton pattern in Python called the Object Pool. This one is not covered in the book. It allows to create a few discrete instances. Like for database connections. These are meant to be there for a short time. The idea is to have an object that we can reuse up to n times. You then can acquire (same as retrieve) these objects. Some are free, some are not. You should also have a release mechanism.
 https://sourcemaking.com/design_patterns/object_pool/python/1
 
-#TODO:
-Finish this video https://www.youtube.com/watch?v=Rm4JP7JfsKY&list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71FG6N&index=10
-Check again the codes
+https://www.youtube.com/watch?v=Rm4JP7JfsKY&list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71FG6N&index=11 for another code version
+
+
 
