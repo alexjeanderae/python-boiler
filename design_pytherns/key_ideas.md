@@ -98,7 +98,30 @@ https://www.youtube.com/watch?v=Rm4JP7JfsKY&list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71F
 # Command pattern
 Main idea: The Command pattern encapsulates a request to an object. There is a do operation and an undo operations that is supported by this pattern. We do not look at the receiver or the originator of the request. We focus on requests and on actions. The commands/requests become objects, they can be used and pass around for other things like sets of commands, command chains (queue), undo with history operations, etc.
 
-Buzz-words: 
+Buzz-words: Encapsulate the request,  method commands as arguments, do/undo, reverse effects, queue
 
 ### Command pattern - technical overview
 The invoker (ex remote control) is loaded with ICommands for each button. The concrete implementation of the Icommand is a Command. That Command (Turn the light) acts upon a receiver (the light bulb). The invoker has a SetCommand() that takes a ICommand as an argument. The ICommand has two methods, execute and unexecute without arguments. The Command implements these two. The receiver could be anything. It does not share info as far as Command is concerned. It is a black box open for anything. Usually we can expect the receiver to do an action() based on the execute and an unaction based on the unexecute of the command.
+
+Example of when: remote control, chain of instructions
+
+### Command pattern - python overview
+Check out the 04-command.py file. Comments are inside, the code is quite generic, focused on illustrating the classes needed around commands, invoker, receiver. It also contains a main method, do/undo. I have seen very different ways to code a command pattern in python. Best would be to review other cases before coding one in the future.
+
+=======================
+
+# Factory pattern
+Main idea: 
+
+Buzz-words: 
+
+### Factory pattern - technical overview
+
+
+Example of when: 
+
+### Command pattern - python overview
+First check out object creation 
+
+Check out the 05-factory.py file. Comments are inside, the code is quite generic, 
+
