@@ -93,4 +93,12 @@ https://sourcemaking.com/design_patterns/object_pool/python/1
 https://www.youtube.com/watch?v=Rm4JP7JfsKY&list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71FG6N&index=11 for another code version
 
 
+=======================
 
+# Command pattern
+Main idea: The Command pattern encapsulates a request to an object. There is a do operation and an undo operations that is supported by this pattern. We do not look at the receiver or the originator of the request. We focus on requests and on actions. The commands/requests become objects, they can be used and pass around for other things like sets of commands, command chains (queue), undo with history operations, etc.
+
+Buzz-words: 
+
+### Command pattern - technical overview
+The invoker (ex remote control) is loaded with ICommands for each button. The concrete implementation of the Icommand is a Command. That Command (Turn the light) acts upon a receiver (the light bulb). The invoker has a SetCommand() that takes a ICommand as an argument. The ICommand has two methods, execute and unexecute without arguments. The Command implements these two. The receiver could be anything. It does not share info as far as Command is concerned. It is a black box open for anything. Usually we can expect the receiver to do an action() based on the execute and an unaction based on the unexecute of the command.

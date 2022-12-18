@@ -1,0 +1,1 @@
+# the main idea is that a class can behave differently depending on context
