@@ -176,5 +176,7 @@ A normal response from the API would be in JSON format with meta data in it like
 
         Limitations: Models also don’t have access to real-time updates unless connected to external databases or updated regularly, so their knowledge is capped at the last time they were trained (for GPT-4, this is September 2021)."
 
+        To access more expert-level knowledge you need to ask "act as a ...". Try the same prompt acting as a product engineer or a door by door sales rep.
+
 ## 13. Documenting:
     Provide the llm with jargonistic or difficult to read text and ask it to add comments with explanations.
