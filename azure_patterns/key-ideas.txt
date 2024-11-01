@@ -1,0 +1,27 @@
+Adapted from the official Azure documentation
+
+=== Azure Architectural Patterns and Best Practices ===
+Azure provides a comprehensive page detailing various architectural patterns along with links to further resources for in-depth guidance. 
+
+* Key patterns covered include: *
+- Cache Aside: Improves performance by loading data on demand into a cache from a data store.
+- Circuit Breaker: Enhances reliability by detecting failures and preventing requests from continually failing.
+- Sharding: Divides a data store into horizontal partitions (shards) to improve scalability.
+- Strangler Fig: Gradually replaces specific functionality of a legacy system with new applications, enabling incremental migration.
+- Throttling and Rate Limiting: Controls resource consumption by an application instance, tenant, or service, preventing overload.
+- Valet Key: Uses restricted access tokens or keys to provide clients with controlled, direct access to resources.
+
+* Durable Functions *
+In addition, Durable Functions can be considered an Azure-specific pattern. This feature in Azure Functions enables you to write stateful functions in a serverless environment, ideal for complex workflows and stateful operations. More details can be found here: Durable Functions Overview
+
+* Azure Well-Architected Framework *
+The Azure Well-Architected Framework is a set of best practices aimed at designing reliable, efficient, and secure cloud solutions. Its five pillars include:
+- Cost Optimization: Maximize value while minimizing costs.
+- Operational Excellence: Implement processes that keep applications operational.
+- Performance Efficiency: Use resources effectively for optimal performance.
+- Reliability: Build resilient applications that can recover from failures.
+- Security: Protect data, applications, and systems against threats.
+
+https://learn.microsoft.com/en-us/azure/architecture/patterns/
+https://learn.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=python
+https://learn.microsoft.com/en-us/azure/well-architected/what-is-well-architected-framework

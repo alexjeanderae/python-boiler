@@ -1,4 +1,0 @@
-check out this series - take all the key aspects and put them into separate py files with code examples
-https://www.javatpoint.com/python-comments
-https://www.javatpoint.com/python-magic-method
-https://www.javatpoint.com/python-high-order-function

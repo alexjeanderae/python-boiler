@@ -1,0 +1,4 @@
+# Interface: Defines a contract for what methods must be implemented, without specifying the implementation details... only the method names and parameters. In Python, there isn’t a strict interface keyword as in some other languages like Java. Instead, abstract base classes (ABCs) and duck typing are often used to achieve similar behavior.
+
+# See Command Pattern: Uses an interface to define a common execute method, enabling interchangeable commands. Each concrete command class (e.g., CalculateRevenueCommand, ApplyDiscountCommand) implements the execute method to perform a specific operation.
+# See Strategy Pattern: Uses an interface to define a common method (e.g., apply_strategy), allowing the context to switch between strategies easily.

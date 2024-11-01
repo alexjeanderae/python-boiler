@@ -1,9 +1,0 @@
-
-- Book "Head First Design Patterns" published by O'Reilly
-- Christopher Okhravi series - 18 videos - https://www.youtube.com/playlist?list=PLrhzvIcii6GNjpARdnO4ueTUAVR9eMBpc
-- arjan codes series - 38 vids https://www.youtube.com/playlist?list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71FG6N
-- neuralnine  series - 10 vids - https://www.youtube.com/watch?v=KSiRzuSx120&list=PL7yh-TELLS1FuqLSjl5bgiQIEH25VEmIc
-- https://python-patterns.guide/
-- refactoring.guru
-
-# ADD MVC, repository pattern

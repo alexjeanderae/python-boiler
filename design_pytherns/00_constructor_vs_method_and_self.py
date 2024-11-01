@@ -30,3 +30,29 @@ p1.myfunc()
 # if you want to create an object you need to call init in the class method that creates the object. You cannot avoid it.
 # Python will call it automatically for you. init only makes sure the object gets attached all the required properties. It 
 # does not assign values.
+
+# __init__ in Python vs. JavaScript Constructors
+# Python (__init__):
+
+# The __init__ method in Python is a special method that gets called automatically when a new instance of a class is created. It is responsible for initializing the object's attributes.
+# It’s like a constructor in other languages (e.g., Java, C++). You do not have to call __init__ explicitly; Python calls it whenever you create a new instance.
+
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+my_car = Car("Toyota", "Corolla")  # __init__ is automatically called
+
+# JavaScript (Constructor Function):
+
+# In JavaScript, classes have a constructor method that serves a similar purpose to Python’s __init__. The constructor method is called when a new instance is created using the new keyword. This in JS is similar to self in python but can have additional complexities due to how JS does scoping.
+# JavaScript classes use constructor() paired with this to initialize object properties.
+# JS code:
+# class Car {
+#    constructor(make, model) {
+#        this.make = make;
+#        this.model = model;
+#    }
+# }
+# const myCar = new Car("Toyota", "Corolla");  // constructor is automatically called

@@ -1,93 +1,57 @@
-#  you have a SupportTicket class as well as a CustomerSupport class at the top
-# while has a concrete method called generate_id for all Support tickets
-# CustomerSupport tend to have different strategies to get to no more tickets left
-# can go Lifo, fifo, random, etc... All these are separate methods with their own defs
-# inside CustomerSupport we have a 
-# plural: def process_tickets(self, ordering: Callable[[List[SupportTicket]], List[SupportTicket]]):
-# that one iterates through the tickets and can be called by passing as an argument one of the separate methods
-# like app.process_tickets(fifoOrdering)
-# you can now create a new_processing_tickets_method and def it independantly. The code is ready for it and you just
-# call it through app.process_tickets(new_processing_tickets_method)
-# This a more functional approach to the strategy pattern. You could also use a syntax with abstract classes but it is more 
-# verbose.
+# Strategy pattern
+# 
+# In short, Strategy is about choosing an algorithm at runtime, while Command is about creating self-contained actions that can be triggered or queued independently. For example, you have data that you need to process, you can imagine three ordering strategies: FIFO (First-In-First-Out), FILO (First-In-Last-Out), Random, etc.. These will be decided at Run time .
+#
+# Another example would be to define for instance three difference actions upon receiving an API response from a Weather app.
 
-import string
-import random
-from typing import List, Callable # this Callable keyword makes the process more strict, ie we expect to see functions
-#  being passed... Callable is a function-like object. Either a function or a class that behaves like a function
-# typical typo I do, to avoid, it is written Callable not Calleable!
+# Wach API response triggers a specific strategy at runtime. For example, you might use a function that interprets the response and then chooses the appropriate strategy. 
 
+from typing import List, Callable
 
-def generate_id(length=8):
-    # helper function for generating an id
-    return ''.join(random.choices(string.ascii_uppercase, k=length))
+# Weather warning types as strategy functions
+def no_warning(contact_list: List[str], postcodes: List[str]):
+    print("API Response: No Warning")
+    print("No action needed.")
 
+def mild_warning(contact_list: List[str], postcodes: List[str]):
+    print("API Response: Mild Warning")
+    print("Notifying affected contacts for a mild warning.")
+    for contact in contact_list:
+        print(f"Sending mild warning to {contact}")
 
-class SupportTicket:
+def severe_warning(contact_list: List[str], postcodes: List[str]):
+    print("API Response: Severe Warning")
+    print("High-priority alert for all contacts in affected areas.")
+    for contact in contact_list:
+        print(f"Sending SEVERE warning to {contact} in areas: {', '.join(postcodes)}")
 
-    def __init__(self, customer, issue):
-        self.id = generate_id()
-        self.customer = customer
-        self.issue = issue
-
-
-def fifoOrdering(list: List[SupportTicket]) -> List[SupportTicket]:
-    return list.copy()
-
-
-def filoOrdering(list: List[SupportTicket]) -> List[SupportTicket]:
-    list_copy = list.copy()
-    list_copy.reverse()
-    return list_copy
-
-
-def randomOrdering(list: List[SupportTicket]) -> List[SupportTicket]:
-    list_copy = list.copy()
-    random.shuffle(list_copy)
-    return list_copy
-
-
-def blackHoleOrdering(list: List[SupportTicket]) -> List[SupportTicket]:
-    return []
-
-
-class CustomerSupport:
-
+# WeatherAlertSystem with strategy selection based on API response
+class WeatherAlertSystem:
     def __init__(self):
-        self.tickets = []
+        self.contacts = ["Alice", "Bob", "Charlie"]  # Contacts to notify
 
-    def create_ticket(self, customer, issue):
-        self.tickets.append(SupportTicket(customer, issue))
+    def process_warning(self, warning_strategy: Callable[[List[str], List[str]], None], postcodes: List[str]):
+        warning_strategy(self.contacts, postcodes)
 
-# below is a key code block for callable that get a List of Support Tickets and return also a lost of support tickets
-    def process_tickets(self, ordering: Callable[[List[SupportTicket]], List[SupportTicket]]):
-        # create the ordered list
-        ticket_list = ordering(self.tickets)
+# Function to interpret API response and choose a strategy
+def handle_api_response(alert_system, api_response: str, postcodes: List[str]):
+    if api_response == "No Warning":
+        alert_system.process_warning(no_warning, postcodes)
+    elif api_response == "Mild Warning":
+        alert_system.process_warning(mild_warning, postcodes)
+    elif api_response == "Severe Warning":
+        alert_system.process_warning(severe_warning, postcodes)
+    else:
+        print("Unknown warning level received from API.")
 
-        # if it's empty, don't do anything
-        if len(ticket_list) == 0:
-            print("There are no tickets to process. Well done!")
-            return
+# Example usage simulating API responses
+alert_system = WeatherAlertSystem()
 
-        # go through the tickets in the list
-        for ticket in ticket_list:
-            self.process_ticket(ticket)
+print("Example 1: API Response -> No Warning")
+handle_api_response(alert_system, "No Warning", [])
 
-    def process_ticket(self, ticket: SupportTicket):
-        print("==================================")
-        print(f"Processing ticket id: {ticket.id}")
-        print(f"Customer: {ticket.customer}")
-        print(f"Issue: {ticket.issue}")
-        print("==================================")
+print("\nExample 2: API Response -> Mild Warning")
+handle_api_response(alert_system, "Mild Warning", ["1010", "2020"])
 
-
-# create the application
-app = CustomerSupport()
-
-# register a few tickets
-app.create_ticket("John Smith", "My computer makes strange sounds!")
-app.create_ticket("Linus Sebastian", "I can't upload any videos, please help.")
-app.create_ticket("Arjan Egges", "VSCode doesn't automatically solve my bugs.")
-
-# process the tickets
-app.process_tickets(blackHoleOrdering)
+print("\nExample 3: API Response -> Severe Warning")
+handle_api_response(alert_system, "Severe Warning", ["1010", "2020", "3030"])
