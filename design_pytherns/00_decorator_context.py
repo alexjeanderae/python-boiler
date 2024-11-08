@@ -1,6 +1,6 @@
 ### Decorators
 
-# **Decorators** are functions that **modify the behavior of other functions or methods**. They are often used for **logging**, **authentication**, **timing**, or **modifying outputs**.
+# **Decorators** are functions that **modify the behavior of other functions or methods**. They are often used for **logging**, **authentication**, **timing**, or **modifying outputs**. They set up a context, then run code on the context and finally remove the context.
 
 # **Example: Timing Decorator**
 
