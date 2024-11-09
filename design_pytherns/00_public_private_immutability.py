@@ -204,3 +204,5 @@ print(counter(1))  # Output: 2
 
 ### What `nonlocal` Does Differently
 # The `nonlocal` keyword allows `increment` to **modify the `count` variable from the enclosing scope** directly. Instead of creating a new local variable, `nonlocal` makes `count` in `increment` refer to the same `count` in `create_counter`.
+
+# alternative the global keyword.
